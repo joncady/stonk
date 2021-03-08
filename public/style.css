@@ -1,0 +1,117 @@
+.digit, .dig {
+  padding: 10px 30px;
+  width: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  flex: 30%;
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: grey;
+}
+
+#two_factor {
+  background-color: white;
+  width: 400px;
+  padding: 20px;
+  margin: 30px auto;
+  height: 420px;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#output {
+  font-family: "Exo";
+  font-size: 2rem;
+  height: 60px;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+#submit {
+  display: inline-block;
+  background-color: #66bb6a;
+  padding: 4px 30px;
+  margin: 10px;
+  color: white;
+  border-radius: 4px;
+  float: left;
+  cursor: pointer;
+}
+.botrow {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Exo';
+}
+
+.digit:active, .dig:active {
+  background-color: #e6e6e6;
+}
+
+.digit-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#call:hover {
+  background-color: #81c784;
+}
+
+.dig {
+  padding: 10px 20px;
+  margin: 10px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#stocks {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.card {
+  width: 300px;
+}
+
+.bigger {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#exit {
+  z-index: 99;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#fullscreen {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

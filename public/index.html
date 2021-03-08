@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <main id="stocks" class="hidden">
+
+    </main>
+
+    <div id="two_factor">
+        <div id="output"></div>
+        <div class="digit-box">
+            <div class="digit">1</div>
+            <div class="digit">2</div>
+            <div class="digit">3</div>
+            <div class="digit">4</div>
+            <div class="digit">5</div>
+            <div class="digit">6</div>
+            <div class="digit">7</div>
+            <div class="digit">8</div>
+            <div class="digit">9</div>
+            <div class="digit">C</div>
+            <div class="digit">0</div>
+            <div class="digit">D</div>
+        </div>
+        <div class="botrow">
+            <div id="submit">
+                <div>Submit</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <button id="fullscreen" class="btn">Fullscreen</button>
+    <button id="exit" class="btn">Exit</button>
+    <script src="index.js"></script>
+</body>
+
+</html>
