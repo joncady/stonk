@@ -60,15 +60,20 @@ document.getElementById("submit").addEventListener("click", () => {
 
 let fullscreen = document.getElementById("fullscreen");
 let exit = document.getElementById("exit");
+let refreshStocks = document.getElementById("refreshStocks");
 
 fullscreen.addEventListener("click", () => {
-    document.getElementById("stocks").requestFullscreen();
-    fullscreen.classList.add("hidden");  
-    exit.classList.remove("hidden");
+    document.getElementById("stockWindow").requestFullscreen();
+    fullscreen.classList.add("hide");  
+    exit.classList.remove("hide");
 })
 
 exit.addEventListener("click", () => {
     document.exitFullscreen();
-    fullscreen.classList.remove("hidden");   
-    exit.classList.add("hidden"); 
+    fullscreen.classList.remove("hide");   
+    exit.classList.add("hide"); 
 })
+
+refreshStocks.addEventListener("click", () => {
+    socket.emit("refreshStocks");
+});

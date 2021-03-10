@@ -30,6 +30,13 @@ io.on("connection", async (socket: Socket) => {
         startFetchingStockData();
     }
 
+    socket.on("refreshStocks", async () => {
+        console.log("Updating stocks...")
+        let stocks = await authAndFetchSheet();
+        stockSymbols = new Set(stocks);
+        startFetchingStockData();
+    })
+
     socket.on("disconnect", () => {
         if (io.engine.clientsCount === 0) {
             clearInterval(interval!);
