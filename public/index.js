@@ -1,10 +1,7 @@
 
 const socket = io()
 
-let loggedIn = false;
-
 socket.on("update", (message) => {
-    showStocks();
     let stocks = message.quotes;
     if (stocks) {
         fillList(stocks);
@@ -34,16 +31,7 @@ function createRow(stock) {
     return card;
 }
 
-socket.on("logged_in", () => {
-    loggedIn = true;
-    showStocks();
-})
-
-function showStocks() {
-    document.getElementById("two_factor").classList.add("hidden");
-    document.getElementById("stocks").classList.remove("hidden");
-}
-
+/** for robinhood flow
 let input = "";
 
 function changeInput(number) {
@@ -68,7 +56,7 @@ document.getElementById("submit").addEventListener("click", () => {
     if (input.length !== 6) return;
     socket.emit("login_code", { code: input });
 });
-
+*/
 
 let fullscreen = document.getElementById("fullscreen");
 let exit = document.getElementById("exit");

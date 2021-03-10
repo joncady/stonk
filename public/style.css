@@ -1,18 +1,14 @@
+/** unused
 .digit, .dig {
   padding: 10px 30px;
   width: 30px;
   font-size: 2rem;
   cursor: pointer;
   -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Safari */
   -khtml-user-select: none;
-  /* Konqueror HTML */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none;
   flex: 30%;
 }
@@ -79,15 +75,18 @@
 .hidden {
   display: none;
 }
+*/
 
 #stocks {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .card {
-  width: 300px;
+  width: 300px!important;
+  height: 180px;
 }
 
 .bigger {
