@@ -102,7 +102,7 @@
   z-index: 99;
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
 }
 
 #refreshStocks {
@@ -124,4 +124,26 @@
 
 .red {
   color: red;
+}
+
+.card:hover {
+  cursor: pointer;
+  border: solid darkgray 1px
+}
+
+#stockFrame {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full {
+  width: 100%;
+  max-width: none!important;
+}
+
+#lastUpdated {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }

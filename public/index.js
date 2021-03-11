@@ -1,10 +1,13 @@
 
 const socket = io()
 
+let stockLink = "https://thestockmarketwatch.com/stock/?stock=";
+
 socket.on("update", (message) => {
     let stocks = message.quotes;
     if (stocks) {
         fillList(stocks);
+        document.getElementById("lastUpdated").innerHTML = "<b>Last updated: </b>" + new Date().toLocaleString()
     }
 })
 
@@ -17,17 +20,45 @@ function fillList(stocks) {
 }
 
 function createRow(stock) {
+
+    const color = (stock) => {
+        if (stock.regularMarketChangePercent > 0) {
+            return "green";
+        } else if (stock.regularMarketChangePercent < 0) {
+            return "red";
+        } else {
+            return "";
+        }
+    }
+
     let card = document.createElement("div");
     card.classList.add("card");
     let positive = stock.regularMarketChangePercent > 0;
     card.innerHTML = `
-    <div class="card-body">
+    <div class="card-body" data-target="#modal" data-toggle="modal">
       <h5 class="card-title">${stock.symbol} - ${stock.shortName} </h5>
       <p class="card-text bigger">${stock.regularMarketPrice.toFixed(2)}</p>
-      <p class="card-text ${positive ? "green" : "red"}">${positive && "+"}${stock.regularMarketChange.toFixed(2)} (${positive && "+"}${stock.regularMarketChangePercent.toFixed(2)})</p>
-
+      <p class="card-text ${color(stock)}">${positive ? "+" : ""}${stock.regularMarketChange.toFixed(2)} (${positive ? "+" : ""}${stock.regularMarketChangePercent.toFixed(2)})</p>
   </div>
     `;
+    card.addEventListener("click", () => {
+        new TradingView.widget(
+            {
+            "width": "100%",
+            "height": "100%",
+            "symbol": stock.symbol,
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "container_id": "stockFrame"
+          }
+            );
+    });
     return card;
 }
 
@@ -64,14 +95,14 @@ let refreshStocks = document.getElementById("refreshStocks");
 
 fullscreen.addEventListener("click", () => {
     document.getElementById("stockWindow").requestFullscreen();
-    fullscreen.classList.add("hide");  
+    fullscreen.classList.add("hide");
     exit.classList.remove("hide");
 })
 
 exit.addEventListener("click", () => {
     document.exitFullscreen();
-    fullscreen.classList.remove("hide");   
-    exit.classList.add("hide"); 
+    fullscreen.classList.remove("hide");
+    exit.classList.add("hide");
 })
 
 refreshStocks.addEventListener("click", () => {

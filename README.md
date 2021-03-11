@@ -15,3 +15,6 @@ SPREADSHEET=<SPREADSHEET_ID>
 Intended for Raspberry PI / small screen device as a quick ticker to see saved stocks stocks.
 
 Updates at configurable interval.
+
+To update:
+- Add sound effect
